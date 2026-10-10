@@ -53,6 +53,7 @@
         </div>
 
          <script>
+            let arrayGatti = []; //inizializzare un array
             const imgTag = document.getElementById("gatto-img");
             const bottone = document.getElementById("nuovo-gatto");
 
@@ -65,10 +66,26 @@
             const salva = document.getElementById("salva-gatto");
 
             salva.addEventListener("click", () =>{
-                const newImg = document.createElement("img");
-                newImg.src = imgTag.src;
-                gattiSalvati.appendChild(newImg);
+                arrayGatti.push(imgTag.src);
+                renderizzaGatti();
+
+                
             });
+
+            function renderizzaGatti(){
+                //svuotiamo il div gatti-salvati
+                gattiSalvati.innerHTML = "";
+
+                //riempimento div con i gatti nell array
+                arrayGatti.forEach((urlgatto) =>{
+                    const newImg = document.createElement("img");
+                    newImg.src = urlgatto;
+                    gattiSalvati.appendChild(newImg);
+                })
+            }
+            
+
+
 
 async function getCat() {
     const url = "https://cataas.com/cat/gif?json=true";
