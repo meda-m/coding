@@ -37,7 +37,7 @@ function aggiungiProdotto() {
         //se ha la classe done la toglie, se non ce lha la aggiunge
         nuovoItem.classList.toggle("done");
     });
-    
+
     //creo il button per rimuovere l'item
     const rimuoviBottone = document.createElement("button");
     rimuoviBottone.textContent = "GET THIS S..T OUT OF HERE";
@@ -47,7 +47,7 @@ function aggiungiProdotto() {
 
     });
 
-
+    
 
     //aggiunge il <li> alla lista
     lista.append(nuovoItem);
