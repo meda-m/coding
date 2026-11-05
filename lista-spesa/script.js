@@ -13,34 +13,50 @@ const errore = document.getElementById("errore");
 function aggiungiProdotto() {
     //messaggio errore
     errore.textContent = "";
-    if(item.value === ""){
+    if (item.value === "") {
         errore.textContent = "VARDA CHE TE GHE SCRIT NINT BELOOO";
         return;
     }
 
     //nuovo li
-   const nuovoItem = document.createElement("li");
+    const nuovoItem = document.createElement("li");
 
     //riempio il <li> con quanto inserito dall'utente
     nuovoItem.textContent = item.value;
 
-   //creo il button per rimuovere l'item
-   const rimuoviBottone = document.createElement("button");
-   rimuoviBottone.textContent = "GET THIS S..T OUT OF HERE";
-   nuovoItem.append(rimuoviBottone);
-   rimuoviBottone.addEventListener("click", ()=>{
+
+    nuovoItem.addEventListener("click", () => {
+        //e quello che fa il comando toggle:
+      /*   if(nuovoItem.classList.contains("done")){
+            nuovoItem.classList.remove("done");
+        }
+        else{
+            nuovoItem.classList.add("done");
+        } */
+
+        //se ha la classe done la toglie, se non ce lha la aggiunge
+        nuovoItem.classList.toggle("done");
+    });
+    
+    //creo il button per rimuovere l'item
+    const rimuoviBottone = document.createElement("button");
+    rimuoviBottone.textContent = "GET THIS S..T OUT OF HERE";
+    nuovoItem.append(rimuoviBottone);
+    rimuoviBottone.addEventListener("click", () => {
         nuovoItem.remove();
 
-   });
+    });
 
 
 
-   //aggiunge il <li> alla lista
-   lista.append(nuovoItem);
-   //resetto l'input
-   item.value = "";
+    //aggiunge il <li> alla lista
+    lista.append(nuovoItem);
+    //resetto l'input
+    item.value = "";
 
-}   
+
+
+}
 btnAggiungi.addEventListener("click", aggiungiProdotto)
 
 
